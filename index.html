@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kid's Guide to the Gallbladder</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Comic Neue', cursive;
+            background: linear-gradient(-45deg, #f2f6fc, #e3f2fd, #e8f5e9, #f8f9fa);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            overflow-x: hidden;
+            color: #333;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .floating {
+            animation: floating 6s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .bubble {
+            border-radius: 50%;
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.7);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .interactive-btn {
+            transform: scale(1);
+            transition: all 0.3s;
+        }
+
+        .interactive-btn:hover {
+            transform: scale(1.1);
+            background-color: #4CAF50 !important;
+        }
+
+        .organ-card {
+            perspective: 1000px;
+        }
+
+        .organ-card-inner {
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .organ-card:hover .organ-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .organ-card-front, .organ-card-back {
+            backface-visibility: hidden;
+        }
+
+        .organ-card-back {
+            transform: rotateY(180deg);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .pulsing {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-stack {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen pb-20">
+    <!-- Background floating elements -->
+    <div class="bubble floating" style="width: 100px; height: 100px; top: 10%; left: 20%;"></div>
+    <div class="bubble floating" style="width: 80px; height: 80px; top: 60%; left: 5%; animation-delay: 2s;"></div>
+    <div class="bubble floating" style="width: 120px; height: 120px; top: 30%; right: 15%; animation-delay: 1s;"></div>
+
+    <!-- Header -->
+    <header class="text-center py-8 px-4 relative">
+        <h1 class="text-4xl md:text-5xl font-bold text-green-700 mb-4">The Amazing Gallbladder!</h1>
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/72101a1d-52b0-4822-ac19-a9f4861ec81f.png" alt="Friendly cartoon gallbladder character waving, with green color and happy face" class="mx-auto rounded-lg shadow-lg w-full max-w-4xl pulsing" id="main-image">
+        <div class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-white px-4 py-2 rounded-full shadow-lg">
+            <span class="text-sm font-bold text-green-600">💪 Your Tiny Digestion Helper 💪</span>
+        </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="container mx-auto px-4 max-w-6xl">
+        <!-- Introduction -->
+        <section class="bg-white rounded-2xl shadow-lg p-6 mb-10 relative">
+            <div class="bubble floating" style="width: 40px; height: 40px; top: -10px; right: -10px; background-color: #FFF59D;"></div>
+            <h2 class="text-3xl font-bold text-blue-600 mb-4">What is a Gallbladder?</h2>
+            <p class="text-lg mb-4">
+                Your gallbladder is a small, pear-shaped organ that sits just under your liver on the right side of your belly. It's about the size of a small pear and works like a storage tank for a special liquid called bile that helps your body digest food!
+            </p>
+            <div class="flex flex-wrap gap-4 mt-6">
+                <div class="organ-card w-full sm:w-48 h-48 mx-auto">
+                    <div class="organ-card-inner w-full h-full relative">
+                        <div class="organ-card-front bg-green-100 rounded-lg p-4 flex flex-col items-center justify-center text-center h-full">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6a41fa16-1d99-4207-a867-1f9ce1fb92f9.png" alt="Simple color view of gallbladder location in the body with liver and small intestine" class="mb-2">
+                            <span class="font-bold">Location</span>
+                            <span class="text-sm">Under the liver</span>
+                        </div>
+                        <div class="organ-card-back bg-blue-100 rounded-lg p-4 flex flex-col items-center justify-center text-center h-full">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/32c155ce-db1d-4e23-90fe-42448e62d6b9.png" alt="Cross-section diagram showing relative size of gallbladder compared to other organs" class="mb-2">
+                            <span class="font-bold">Size</span>
+                            <span class="text-sm">About 4 inches long</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Function section -->
+        <section class="bg-white rounded-2xl shadow-lg p-6 mb-10 relative overflow-hidden">
+            <div class="bubble floating" style="width: 60px; height: 60px; top: 20px; right: 30px; background-color: #FFCCBC;"></div>
+            <h2 class="text-3xl font-bold text-blue-600 mb-4">What Does the Gallbladder Do?</h2>
+            <p class="text-lg">
+                The gallbladder has one super important job - to help digest fats! Here's how it works:
+            </p>
+            
+            <div class="flex mobile-stack gap-6 mt-8">
+                <div class="flex-1 bg-yellow-50 rounded-lg p-4 border-2 border-yellow-200 relative">
+                    <div class="bubble floating" style="width: 30px; height: 30px; bottom: -10px; left: -10px; background-color: #FFECB3;"></div>
+                    <div class="flex items-center mb-3">
+                        <div class="bg-yellow-400 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-2">1</div>
+                        <h3 class="text-xl font-bold text-yellow-700">Stores Bile</h3>
+                    </div>
+                    <p>Your liver makes bile all the time. The gallbladder stores this bile until it's needed!</p>
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4efc73a4-4f59-42fc-93aa-819d0cd35e0d.png" alt="Cartoon gallbladder filling up with green bile liquid" class="mt-2 rounded-md w-full">
+                </div>
+                
+                <div class="flex-1 bg-green-50 rounded-lg p-4 border-2 border-green-200 relative">
+                    <div class="bubble floating" style="width: 30px; height: 30px; bottom: -10px; right: -10px; background-color: #C8E6C9; animation-delay: 0.5s;"></div>
+                    <div class="flex items-center mb-3">
+                        <div class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-2">2</div>
+                        <h3 class="text-xl font-bold text-green-700">Releases When Needed</h3>
+                    </div>
+                    <p>When you eat fatty foods, your gallbladder squeezes out bile into your small intestine!</p>
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a5f781b1-46a6-4b17-b167-91d7509fbb29.png" alt="Animated gallbladder releasing green bile into digestive tract when eating food" class="mt-2 rounded-md w-full">
+                </div>
+                
+                <div class="flex-1 bg-blue-50 rounded-lg p-4 border-2 border-blue-200 relative">
+                    <div class="bubble floating" style="width: 30px; height: 30px; top: -10px; right: -10px; background-color: #BBDEFB; animation-delay: 1s;"></div>
+                    <div class="flex items-center mb-3">
+                        <div class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-2">3</div>
+                        <h3 class="text-xl font-bold text-blue-700">Breaks Down Fats</h3>
+                    </div>
+                    <p>Bile helps break down fats into tiny pieces so your body can use them for energy!</p>
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1e27108d-912f-4861-a38a-9006e1a7b317.png" alt="Scientific diagram showing fat molecules being broken down by bile salts" class="mt-2 rounded-md w-full">
+                </div>
+            </div>
+        </section>
+
+        <!-- Fun Facts -->
+        <section class="bg-white rounded-2xl shadow-lg p-6 relative">
+            <h2 class="text-3xl font-bold text-blue-600 mb-6">Cool Gallbladder Facts!</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="bg-pink-50 rounded-lg p-4 border-2 border-pink-200 relative">
+                    <div class="bubble floating" style="width: 20px; height: 20px; top: 10px; right: 10px; background-color: #F8BBD0;"></div>
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/0b7a4c17-9696-4da9-a826-a5d2e1a3192d.png" alt="Gallstone with warning sign, showing how they can block the bile duct" class="mb-2 w-full rounded-md">
+                    <h3 class="font-bold text-pink-700 text-lg mb-1">Gallstones</h3>
+                    <p>Sometimes hard stones form in the gallbladder. These are called gallstones and can cause pain if they block the bile duct.</p>
+                </div>
+                
+                <div class="bg-teal-50 rounded-lg p-4 border-2 border-teal-200 relative">
+                    <div class="bubble floating" style="width: 20px; height: 20px; bottom: 10px; left: 10px; background-color: #B2DFDB; animation-delay: 0.5s;"></div>
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/94e5274c-0b73-4a28-97f9-3b69c0d732fc.png" alt="Happy person after gallbladder removal showing they can live without it" class="mb-2 w-full rounded-md">
+                    <h3 class="font-bold text-teal-700 text-lg mb-1">Live Without It</h3>
+                    <p>People can live without a gallbladder! If it's removed, the liver sends bile directly to the small intestine.</p>
+                </div>
+                
+                <div class="bg-orange-50 rounded-lg p-4 border-2 border-orange-200 relative">
+                    <div class="bubble floating" style="width: 20px; height: 20px; top: 20px; right: 20px; background-color: #FFE0B2; animation-delay: 1s;"></div>
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/70f24f85-ee4d-4a03-89b5-75e99ac6a3a5.png" alt="Various colorful gallbladder icons representing different animals' gallbladders" class="mb-2 w-full rounded-md">
+                    <h3 class="font-bold text-orange-700 text-lg mb-1">Animal Gallbladders</h3>
+                    <p>Most vertebrates have gallbladders. Even whales and dolphins have them to help digest their fishy meals!</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-16 py-6 bg-blue-600 text-white text-center">
+        <div class="container mx-auto px-4">
+            <p class="text-lg">Remember to eat healthy fats to keep your gallbladder happy!</p>
+            <div class="flex justify-center space-x-4 mt-4">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d80697e5-7b37-4d3f-9cec-59d3996f31cb.png" alt="Apple icon showing healthy eating" class="w-10 h-10">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1a260177-16d1-41a6-a860-dc9a49567d25.png" alt="Fish icon representing omega-3 healthy fats" class="w-10 h-10">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b94333ad-1ad2-47ec-8ed8-c000fce917c4.png" alt="Exercise icon with jumping person" class="w-10 h-10">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c97ba341-eb08-4ca9-8244-306f9bcd7893.png" alt="Water bottle icon for hydration" class="w-10 h-10">
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Quiz functionality
+        function checkAnswer(questionNum, button, isCorrect) {
+            // Reset all buttons for this question
+            const buttons = button.parentElement.querySelectorAll('button');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-green-200', 'bg-red-200', 'text-white');
+                btn.classList.add('bg-purple-100', 'text-purple-800');
+                if (btn === button) {
+                    if (isCorrect) {
+                        btn.classList.add('bg-green-200', 'text-white');
+                        btn.classList.remove('bg-purple-100', 'text-purple-800');
+                    } else {
+                        btn.classList.add('bg-red-200', 'text-white');
+                        btn.classList.remove('bg-purple-100', 'text-purple-800');
+                    }
+                }
+            });
+            
+            // Show correct answer if wrong was selected
+            if (!isCorrect) {
+                buttons.forEach(btn => {
+                    if (btn.innerHTML.includes('Pear-shaped') || btn.innerHTML.includes('Fats')) {
+                        btn.classList.add('bg-green-200', 'text-white');
+                        btn.classList.remove('bg-purple-100', 'text-purple-800');
+                    }
+                });
+            }
+            
+            // Check if all questions answered correctly
+            setTimeout(() => {
+                const allQuestions = document.querySelectorAll('.quiz-question');
+                let allCorrect = true;
+                
+                allQuestions.forEach(question => {
+                    const hasGreen = question.querySelector('.bg-green-200');
+                    if (!hasGreen) allCorrect = false;
+                });
+                
+                if (allCorrect) {
+                    document.getElementById('quiz-feedback').classList.remove('hidden');
+                }
+            }, 500);
+        }
+        
+        // Floating element animation variations
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                img.onerror = function() {
+                    this.style.display = 'none';
+                };
+            });
+            
+            // Add random delay to floating elements
+            const bubbles = document.querySelectorAll('.bubble');
+            bubbles.forEach((bubble, index) => {
+                bubble.style.animationDelay = `${index * 0.3}s`;
+            });
+            
+            // Rotate through different gallbladder images
+            const mainImage = document.getElementById('main-image');
+            const imageOptions = [
+                "Happy cartoon gallbladder character waving with green color and smiley face",
+                "Gallbladder with superhero cape showing its importance in digestion",
+                "3D rendered gallbladder with digestive system background",
+                "Gallbladder mascot giving thumbs up with digestive tract"
+            ];
+            
+            let currentImage = 0;
+            setInterval(() => {
+                currentImage = (currentImage + 1) % imageOptions.length;
+                mainImage.alt = imageOptions[currentImage];
+                // In a real implementation, we'd change the src to actual different images
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
